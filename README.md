@@ -1,9 +1,20 @@
 # Sina Weibo Depression Dataset (SWDD)
 
-# Introduction
+## Introduction
 
 - SWDD contains normal user sampels and depressed user samples collected by a [crawler](https://github.com/YiChengCai1999/SinaWeiboCrawler) using the crawling API provided by Sina Weibo. 
 - The dataset is stored in the form of JsonLines, with `depressed.jsonl` for the depressed users and `control.jsonl` for none-depressed users. It can be download from [Google Driver](https://drive.google.com/file/d/1aRFkk53a7wzvyOHzjHqdwq5-ltVLFF17/view?usp=sharing) or [Baidu Netdisk (Verification Code: yc21)](https://pan.baidu.com/s/1vi3U5QppXIcp-gPVWJ9nLg)
+- As of Dec 31, 2021, the candidate samples collected by the crawler and the various information of the samples in SWDD are shown in the following table. Once new data is updated later, the statistics in this table will be updated.
+
+| Dataset    | Category       | User   | Tweet      |
+| ---------- | -------------- | ------ | ---------- |
+| Candidates | Depressed      | 64,513 | 11,610,155 |
+|            | None-depressed | 31,085 | 5,144,688  |
+|            | Total          | 95,598 | 16,754,843 |
+| SWDD       | Depressed      | 1,711  | 337,868    |
+|            | None-depressed | 19,526 | 4,068,732  |
+|            | Total          | 21,237 | 4,406,600  |
+
 - The detailed information fields of `user profile` include:
 
 |     Field Name      |                         Description                          |                           Example                            |
@@ -66,10 +77,9 @@
 |       agitation       |    If the user describes of `Easy to get angry` in tweet     |  false  |
 |      hypersomnia      | If the user describes of `Feel sleepy at daytime and feel hard to get up` |  false  |
 
-# Explanations and Issues
+## Explanations and Issues
 
 - In order to protect the privacy of depressed users, we have deleted the user IDs in SWDD.
 - Instead, **we have uploaded the crawler script** and the script for data preprocessing. Researchers can further collect user samples based on our scripts. All the scripts and the deployment document `README.md` are placed in the folder `SWDD_preprocessing`.
 - If `encoding='utf-8'` doesn't work, try: `encoding='utf-8-sig'` when using `Python` to load the Jsonl file.
 - Other issues will be updated soon...
-
