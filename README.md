@@ -48,7 +48,7 @@
 |  publish_place  |       The current place of user when posting the tweet       |                              -                               |
 |  publish_tool   | Use what kind of device to post the tweet or Under what supertopic the user post the tweet |                      vivo Y3 闪充强续航                      |
 |  reposts_count  |                 Reposting times of the tweet                 |                              0                               |
-|      text       | Text content of tweet (raw html, including emotion icons, mentions, topic of the tweet classified by Sina Weibo) | "该怎么说，许多人都说抑郁症就像感冒发烧可能熬过去了就会好了，也有许多人说是你自己想得太多，这都是屁话。许多人都不会理解我们，深夜痛苦得要死，被全身疼痛折磨，它是不是病就得看自己了，因为它无时无刻都存在，就像沼泽一样越陷越深，我尝试过如何摆脱它，但是我输了，它是不会走的。就像没有灵魂的空壳，没有了快乐，感受不到外界的爱，活在自己的世界里，想要的就只是解脱。 <a data-url=\"http://t.cn/AiD3iByL\" href=\"https://weibo.com/p/2313474450604943540609?\" data-hide=\"\"><span class='url-icon'><img style='width: 1rem;height: 1rem' src='https://h5.sinaimg.cn/upload/2016/11/23/433/wenda_icon_default.png'></span><span class=\"surl-text\">你了解抑郁症吗   知道抑郁症是一种病吗?</span></a>" |
+|      text       | Text content of tweet (raw html, including emotion icons, mentions, topic of the tweet classified by Sina Weibo) | 该怎么说，许多人都说抑郁症就像感冒发烧可能熬过去了就会好了，也有许多人说是你自己想得太多，这都是屁话。许多人都不会理解我们，深夜痛苦得要死，被全身疼痛折磨，它是不是病就得看自己了，因为它无时无刻都存在，就像沼泽一样越陷越深，我尝试过如何摆脱它，但是我输了，它是不会走的。就像没有灵魂的空壳，没有了快乐，感受不到外界的爱，活在自己的世界里，想要的就只是解脱。 <a data-url=\"http://t.cn/AiD3iByL\" href=\"https://weibo.com/p/2313474450604943540609?\" data-hide=\"\"><span class='url-icon'><img style='width: 1rem;height: 1rem' src='https://h5.sinaimg.cn/upload/2016/11/23/433/wenda_icon_default.png'></span><span class=\"surl-text\">你了解抑郁症吗   知道抑郁症是一种病吗?</span></a> |
 | thumb_ups_count |             The number of people favor the tweet             |                              1                               |
 |    video_url    |                  Link of video in the tweet                  |                              -                               |
 |   article_url   |           Link of front page headline in the tweet           |                              -                               |
@@ -80,6 +80,29 @@
 ## Explanations and Issues
 
 - In order to protect the privacy of depressed users, we have deleted the user IDs in SWDD.
-- Instead, **we have uploaded the crawler script** and the script for data preprocessing. Researchers can further collect user samples based on our scripts. All the scripts and the deployment document `README.md` are placed in the folder `SWDD_preprocessing`.
+
+- **We have uploaded the crawler script**. Researchers can further collect user samples based on our scripts. 
+
+- We don't clean the text content of tweet in the dataset, for we think emotion icons, mentions, topic of the tweet may be useful for feature extraction. **Instead, We have offered the scripts for data preprocessing ** in the folder `SWDD_preprocessing`, you can use our scripts for data cleaning or write your own scripts. An example of our `clean_text.py` is shown below:
+
+  - raw html of a tweet in the dataset
+
+    ```
+    该怎么说，许多人都说抑郁症就像感冒发烧可能熬过去了就会好了，也有许多人说是你自己想得太多，这都是屁话。许多人都不会理解我们，深夜痛苦得要死，被全身疼痛折磨，它是不是病就得看自己了，因为它无时无刻都存在，就像沼泽一样越陷越深，我尝试过如何摆脱它，但是我输了，它是不会走的。就像没有灵魂的空壳，没有了快乐，感受不到外界的爱，活在自己的世界里，想要的就只是解脱。 <a data-url=\"http://t.cn/AiD3iByL\" href=\"https://weibo.com/p/2313474450604943540609?\" data-hide=\"\"><span class='url-icon'><img style='width: 1rem;height: 1rem' src='https://h5.sinaimg.cn/upload/2016/11/23/433/wenda_icon_default.png'></span><span class=\"surl-text\">你了解抑郁症吗   知道抑郁症是一种病吗?</span></a>
+    ```
+
+  - after cleaning using `get_raw_text`
+
+    ```
+    该怎么说，许多人都说抑郁症就像感冒发烧可能熬过去了就会好了，也有许多人说是你自己想得太多，这都是屁话。许多人都不会理解我们，深夜痛苦得要死，被全身疼痛折磨，它是不是病就得看自己了，因为它无时无刻都存在，就像沼泽一样越陷越深，我尝试过如何摆脱它，但是我输了，它是不会走的。就像没有灵魂的空壳，没有了快乐，感受不到外界的爱，活在自己的世界里，想要的就只是解脱。
+    ```
+
+  - after cleaning using `get_cleaned_text`
+
+    ```
+    该怎么说 许多人都说抑郁症就像感冒发烧可能熬过去了就会好了 也有许多人说是你自己想得太多 这都是屁话 许多人都不会理解我们 深夜痛苦得要死 被全身疼痛折磨 它是不是病就得看自己了 因为它无时无刻都存在 就像沼泽一样越陷越深 我尝试过如何摆脱它 但是我输了 它是不会走的 就像没有灵魂的空壳 没有了快乐 感受不到外界的爱 活在自己的世界里 想要的就只是解脱 你了解抑郁症吗 知道抑郁症是一种病吗
+    ```
+
 - If `encoding='utf-8'` doesn't work, try: `encoding='utf-8-sig'` when using `Python` to load the Jsonl file.
+
 - Other issues will be updated soon...
