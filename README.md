@@ -81,7 +81,9 @@
 
 - In order to protect the privacy of depressed users, we have deleted the user IDs in SWDD.
 
-- **We have uploaded the crawler script**. Researchers can further collect user samples based on our scripts. 
+- The depressed user is labeled in our self-implemented web-system based on a set of labeling criteria proposed by us. **We have uploaded the annotation system to [DepressionAnnotator Repo](https://github.com/YiChengCai1999/DepressionAnnotator)**
+
+- **We have uploaded the crawler script to [SinaWeiboCrawler Repo](https://github.com/YiChengCai1999/SinaWeiboCrawler)**. Researchers can further collect user samples based on our scripts. 
 
 - We don't clean the text content of tweet in the dataset, for we think emotion icons, mentions, topic of the tweet may be useful for feature extraction. **Instead, We have offered the scripts for data preprocessing ** in the folder `SWDD_preprocessing`, you can use our scripts for data cleaning or write your own scripts. An example of our `clean_text.py` is shown below:
 
