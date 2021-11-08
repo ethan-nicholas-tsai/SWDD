@@ -3,17 +3,17 @@
 ## Introduction
 
 - SWDD contains normal user sampels and depressed user samples collected by a [crawler](https://github.com/YiChengCai1999/SinaWeiboCrawler) using the crawling API provided by Sina Weibo. 
-- The dataset is stored in the form of JsonLines, with `depressed.jsonl` for the depressed users and `control.jsonl` for none-depressed users. It can be download from [Google Driver](https://drive.google.com/file/d/1aRFkk53a7wzvyOHzjHqdwq5-ltVLFF17/view?usp=sharing) or [Baidu Netdisk (Verification Code: yc21)](https://pan.baidu.com/s/1vi3U5QppXIcp-gPVWJ9nLg)
+- The dataset is stored in the form of JsonLines, with `depressed.jsonl` for the depressed users and `control.jsonl` for none-depressed users. It can be download from [Google Driver](https://drive.google.com/file/d/1fNKtoo4SP98OAhalMjNRZfFqmQZsQ0fh/view?usp=sharing) or [Baidu Netdisk (Verification Code: gdq6)](https://pan.baidu.com/s/1V8S_a_GoFFRzRG542eRcSg)
 - As of Dec 31, 2021, the candidate samples collected by the crawler and the various information of the samples in SWDD are shown in the following table. Once new data is updated later, the statistics in this table will be updated.
 
-| Dataset    | Category       | User   | Tweet      |
-| ---------- | -------------- | ------ | ---------- |
-| Candidates | Depressed      | 64,513 | 11,610,155 |
-|            | None-depressed | 31,085 | 5,144,688  |
-|            | Total          | 95,598 | 16,754,843 |
-| SWDD       | Depressed      | 1,711  | 337,868    |
-|            | None-depressed | 19,526 | 4,068,732  |
-|            | Total          | 21,237 | 4,406,600  |
+| Dataset    | Category      | User   | Tweet      |
+| ---------- | ------------- | ------ | ---------- |
+| Candidates | Depressed     | 64,513 | 11,610,155 |
+|            | Non-depressed | 31,085 | 5,144,688  |
+|            | Total         | 95,598 | 16,754,843 |
+| SWDD       | Depressed     | 3,711  | 785,689    |
+|            | Non-depressed | 19,526 | 4,068,732  |
+|            | Total         | 23,237 | 4,854,421  |
 
 - The detailed information fields of `user profile` include:
 
@@ -81,7 +81,9 @@
 
 - In order to protect the privacy of depressed users, we have deleted the user IDs in SWDD.
 
-- **We have uploaded the crawler script**. Researchers can further collect user samples based on our scripts. 
+- The depressed user is labeled in our self-implemented web-system based on a set of labeling criteria proposed by us. **We have uploaded the annotation system to [DepressionAnnotator Repo](https://github.com/YiChengCai1999/DepressionAnnotator)**
+
+- **We have uploaded the crawler script to [SinaWeiboCrawler Repo](https://github.com/YiChengCai1999/SinaWeiboCrawler)**. Researchers can further collect user samples based on our scripts. 
 
 - We don't clean the text content of tweet in the dataset, for we think emotion icons, mentions, topic of the tweet may be useful for feature extraction. **Instead, We have offered the scripts for data preprocessing ** in the folder `SWDD_preprocessing`, you can use our scripts for data cleaning or write your own scripts. An example of our `clean_text.py` is shown below:
 
