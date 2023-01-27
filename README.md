@@ -108,3 +108,16 @@
 - If `encoding='utf-8'` doesn't work, try: `encoding='utf-8-sig'` when using `Python` to load the Jsonl file.
 
 - Other issues will be updated soon...
+
+## Citation
+
+```
+@article{cai2023depression,
+  title={Depression detection on online social network with multivariate time series feature of user depressive symptoms},
+  author={Cai, Yicheng and Wang, Haizhou and Ye, Huali and Jin, Yanwen and Gao, Wei},
+  journal={Expert Systems with Applications},
+  pages={119538},
+  year={2023},
+  doi={10.1016/j.eswa.2023.119538}
+}
+```
