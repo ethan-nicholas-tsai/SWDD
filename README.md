@@ -117,6 +117,7 @@
   author={Cai, Yicheng and Wang, Haizhou and Ye, Huali and Jin, Yanwen and Gao, Wei},
   journal={Expert Systems with Applications},
   pages={119538},
+  volume = {217},
   year={2023},
   doi={10.1016/j.eswa.2023.119538}
 }
